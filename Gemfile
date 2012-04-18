@@ -9,6 +9,8 @@ gem 'haml'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'sqlite3'
+gem 'twitter-bootstrap-rails'
+gem 'coffee-filter'
 
 group :development, :test do
   gem 'rspec-rails'

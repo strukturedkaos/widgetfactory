@@ -1,4 +1,6 @@
 Widgetfactory::Application.routes.draw do
+  resources :parts
+
   get "pages/index"
 
   # The priority is based upon order of creation:

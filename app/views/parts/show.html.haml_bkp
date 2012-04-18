@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @part.name
+%p
+  %b Sku:
+  = @part.sku
+%p
+  %b Description:
+  = @part.description
+
+= link_to 'Edit', edit_part_path(@part)
+\|
+= link_to 'Back', parts_path

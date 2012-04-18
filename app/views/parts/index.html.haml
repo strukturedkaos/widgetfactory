@@ -7,6 +7,7 @@
       %th= model_class.human_attribute_name(:name)
       %th= model_class.human_attribute_name(:sku)
       %th= model_class.human_attribute_name(:description)
+      %th= model_class.human_attribute_name(:quantity)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -16,6 +17,7 @@
         %td= part.name
         %td= part.sku
         %td= part.description
+        %td= part.quantity
         %td=l part.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_part_path(part), :class => 'btn btn-mini'

@@ -8,13 +8,17 @@ gem 'rails', '3.2.3'
 gem 'haml'
 gem 'haml-rails'
 gem 'simple_form'
-gem 'sqlite3'
 gem 'twitter-bootstrap-rails'
 gem 'coffee-filter'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'capybara'
+end
+
+group :production do
+  gem 'pg'
 end
 
 

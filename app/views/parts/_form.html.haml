@@ -2,7 +2,7 @@
   = f.input :name
   = f.input :sku
   = f.input :description
-  = f.input :color  
+  = f.input :color, :collection => ["Red", "White", "Blue"]  
   = f.input :quantity
   .form-actions
     = f.button :submit, :class => 'btn-primary'

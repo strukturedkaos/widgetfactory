@@ -6,7 +6,7 @@ describe "parts/new" do
       :name => "MyString",
       :sku => "RS1233",
       :description => "Description",
-      :color => "Color",
+      :color => "Blue",
       :quantity => 100
     ).as_new_record)
   end
@@ -19,7 +19,7 @@ describe "parts/new" do
       assert_select "input#part_name", :name => "part[name]"
       assert_select "input#part_sku", :name => "part[sku]"
       assert_select "textarea#part_description", :name => "part[description]"
-      assert_select "input#part_color", :name => "part[color]"
+      assert_select "select#part_color", :name => "part[color]"
       assert_select "input#part_quantity", :name => "part[quantity]"      
     end
   end

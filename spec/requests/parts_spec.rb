@@ -6,6 +6,10 @@ describe "Parts" do
       part = FactoryGirl.create(:part)
       visit parts_path
       page.should have_content("Wall-E")
+      page.should have_content("A1345")
+      page.should have_content("A crazy complicated part")
+      page.should have_content("Magenta")
+      page.should have_content("100")      
     end
   end
 
@@ -15,13 +19,13 @@ describe "Parts" do
       fill_in "part_name", :with => "Wall-E"
       fill_in "part_sku", :with => "A1345"
       fill_in "part_description", :with => "A crazy complicated part"
-      fill_in "part_color", :with => "Magenta"
+      select "Blue", :from => "part_color"
       fill_in "part_quantity", :with => "100"
       click_button "Create Part"
       page.should have_content("Wall-E")
       page.should have_content("A1345")
       page.should have_content("A crazy complicated part")
-      page.should have_content("Magenta")
+      page.should have_content("Blue")
       page.should have_content("100")
     end
   end
@@ -30,16 +34,16 @@ describe "Parts" do
     it "edits a part" do
       part = FactoryGirl.create(:part)
       visit edit_part_path(part)
-      fill_in "part_name", :with => "Wall-E"
+      fill_in "part_name", :with => "Eva"
       fill_in "part_sku", :with => "A1345"
       fill_in "part_description", :with => "A crazy complicated part"
-      fill_in "part_color", :with => "Magenta"
+      select "Blue", :from => "part_color"
       fill_in "part_quantity", :with => "100"
       click_button "Update Part"
-      page.should have_content("Wall-E")
+      page.should have_content("Eva")
       page.should have_content("A1345")
       page.should have_content("A crazy complicated part")
-      page.should have_content("Magenta")
+      page.should have_content("Blue")
       page.should have_content("100")
     end
   end

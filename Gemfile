@@ -10,11 +10,18 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'
 gem 'coffee-filter'
+gem 'pry'
 
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
+end
+
+group :test do
+  gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'launchy'
+  gem "guard-rspec"
 end
 
 group :production do

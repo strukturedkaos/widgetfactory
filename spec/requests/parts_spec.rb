@@ -5,11 +5,8 @@ describe "Parts" do
     it "displays parts" do
       part = FactoryGirl.create(:part)
       visit parts_path
-      page.should have_content("Wall-E")
-      page.should have_content("A1345")
-      page.should have_content("A crazy complicated part")
-      page.should have_content("Magenta")
-      page.should have_content("100")      
+      page.should have_content(part.name)
+      page.should have_content(part.sku)    
     end
   end
 
@@ -23,10 +20,7 @@ describe "Parts" do
       fill_in "part_quantity", :with => "100"
       click_button "Create Part"
       page.should have_content("Wall-E")
-      page.should have_content("A1345")
-      page.should have_content("A crazy complicated part")
       page.should have_content("Blue")
-      page.should have_content("100")
     end
   end
 

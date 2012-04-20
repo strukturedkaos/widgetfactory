@@ -1,6 +1,11 @@
+%br
+
 = simple_form_for @component, :html => { :class => 'form-horizontal' } do |f|
   = f.input :name
   = f.input :quantity
+  %br
+  %h3= "Parts"
+  = f.collection_check_boxes :part_ids, Part.all, :id, :name, :label => "Parts"
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), components_path, :class => 'btn'

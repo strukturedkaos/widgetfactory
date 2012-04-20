@@ -6,6 +6,7 @@
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:name)
       %th= model_class.human_attribute_name(:quantity)
+      %th= model_class.human_attribute_name(:parts)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -14,6 +15,7 @@
         %td= link_to component.id, component_path(component)
         %td= component.name
         %td= component.quantity
+        %td= component.parts.collect { |part| part.name }.to_sentence
         %td=l component.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_component_path(component), :class => 'btn btn-mini'

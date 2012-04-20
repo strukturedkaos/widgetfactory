@@ -9,6 +9,12 @@
   %strong= model_class.human_attribute_name(:quantity) + ':'
   %br
   = @component.quantity
+%p
+  %strong Parts
+  %br
+  %ul
+    - @component.parts.each do |part|
+      %li= link_to part.name, part_path(part)
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), components_path, :class => 'btn'

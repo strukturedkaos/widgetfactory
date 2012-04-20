@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420144722) do
+ActiveRecord::Schema.define(:version => 20120420173743) do
+
+  create_table "component_parts", :force => true do |t|
+    t.integer  "component_id"
+    t.integer  "part_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "components", :force => true do |t|
     t.string   "name"

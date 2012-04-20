@@ -6,4 +6,9 @@ FactoryGirl.define do
     f.color "Magenta"
     f.quantity 100
   end
+
+  factory :component do |f|
+    f.name "Articulating Arm"
+    f.quantity 100
+  end
 end

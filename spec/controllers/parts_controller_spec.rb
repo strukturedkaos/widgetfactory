@@ -24,7 +24,11 @@ describe PartsController do
   # Part. As you add validations to Part, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { :name => "Wall-E",
+      :sku => "A1345",
+      :description => "A crazy complicated part",
+      :color => "Magenta",
+      :quantity => 100 }
   end
   
   # This should return the minimal set of values that should be in the session

@@ -1,4 +1,6 @@
 Widgetfactory::Application.routes.draw do
+  resources :components
+
   resources :parts
 
   get "pages/index"

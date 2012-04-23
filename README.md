@@ -1,4 +1,17 @@
-Widget Factory (Training app):
+# Widget Factory (Training app):
+
+Rails application for widgetfactory.heroku.com site.
+
+## Deployment
+
+### Setup Steps
+
+### Production
+
+The site is password protected with Basic Auth
+
+* username: admin
+* password: allthewidgets
 
 MVP:  Provide a list of things that need to be ordered next week to keep the factory at full capacity 
 

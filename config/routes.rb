@@ -1,4 +1,7 @@
 Widgetfactory::Application.routes.draw do
+
+  resources :widgets
+  
   resources :components
 
   resources :parts

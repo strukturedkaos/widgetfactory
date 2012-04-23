@@ -1,0 +1,11 @@
+%br
+
+= simple_form_for @widget, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = f.input :quantity
+  %br
+  %h3= "Components"
+  = f.collection_check_boxes :component_ids, Component.all, :id, :name, :label => "Component"
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), components_path, :class => 'btn'

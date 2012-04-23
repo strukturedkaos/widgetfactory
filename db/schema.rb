@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420173743) do
+ActiveRecord::Schema.define(:version => 20120423145229) do
 
   create_table "component_parts", :force => true do |t|
     t.integer  "component_id"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(:version => 20120420173743) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  add_index "component_parts", ["component_id"], :name => "index_component_parts_on_component_id"
+  add_index "component_parts", ["part_id"], :name => "index_component_parts_on_part_id"
 
   create_table "components", :force => true do |t|
     t.string   "name"
@@ -35,6 +38,23 @@ ActiveRecord::Schema.define(:version => 20120420173743) do
     t.datetime "updated_at",                 :null => false
     t.integer  "quantity"
     t.string   "color"
+  end
+
+  create_table "widget_components", :force => true do |t|
+    t.integer  "widget_id"
+    t.integer  "component_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "widget_components", ["component_id"], :name => "index_widget_components_on_component_id"
+  add_index "widget_components", ["widget_id"], :name => "index_widget_components_on_widget_id"
+
+  create_table "widgets", :force => true do |t|
+    t.string   "name"
+    t.integer  "quantity"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

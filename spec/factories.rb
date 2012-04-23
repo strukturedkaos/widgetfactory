@@ -11,4 +11,9 @@ FactoryGirl.define do
     f.name "Articulating Arm"
     f.quantity 100
   end
+
+  factory :widget do |f|
+    f.name "Engine"
+    f.quantity 100
+  end  
 end

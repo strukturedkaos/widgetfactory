@@ -23,32 +23,4 @@ describe "Parts" do
       page.should have_content("Blue")
     end
   end
-
-  describe "UPDATE /parts" do
-    it "edits a part" do
-      part = FactoryGirl.create(:part)
-      visit edit_part_path(part)
-      fill_in "part_name", :with => "Eva"
-      fill_in "part_sku", :with => "A1345"
-      fill_in "part_description", :with => "A crazy complicated part"
-      select "Blue", :from => "part_color"
-      fill_in "part_quantity", :with => "100"
-      click_button "Update Part"
-      page.should have_content("Eva")
-      page.should have_content("A1345")
-      page.should have_content("A crazy complicated part")
-      page.should have_content("Blue")
-      page.should have_content("100")
-    end
-  end
-
-  # describe "DELETE /parts" do
-  #   it "destroys a part" do
-  #     part = FactoryGirl.create(:part)      
-  #     visit parts_path
-  #     click_button "Destroy"
-  #     page.should_not have_content("Wall-E")
-  #     page.should have_content("A1345")
-  #   end
-  # end    
 end

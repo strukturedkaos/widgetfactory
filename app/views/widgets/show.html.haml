@@ -10,11 +10,8 @@
   %br
   = @widget.quantity
 %p
-  %strong Components
-  %br
-  %ul
-    - @widget.components.each do |component|
-      %li= link_to component.name, component_path(component)
+  = render :partial => 'components'
+
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), widgets_path, :class => 'btn'

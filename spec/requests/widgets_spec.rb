@@ -18,19 +18,23 @@ describe "Widgets" do
     end 
   end  
 
-  describe "widget editing process", :js => true do
-    it "adds a component and updates the quantity of a widget" do
-      arm = FactoryGirl.create(:component)
-      leg = FactoryGirl.create(:component, :name => "Leg")
-      engine = FactoryGirl.create(:widget, :components => [arm, leg])
-      arm_widget_component = engine.widget_components.find_by_component_id(arm)
-      leg_widget_component = engine.widget_components.find_by_component_id(leg)
+  describe "widget components and parts process" do
+      let(:part) { FactoryGirl.create(:part) }
+      let(:arm) { FactoryGirl.create(:component, :parts => [part]) }
+      let(:leg) { FactoryGirl.create(:component, :name => "Leg") }
+      let(:engine) { FactoryGirl.create(:widget, :components => [arm, leg]) }
+      let(:arm_widget_component) { engine.widget_components.find_by_component_id(arm) }
+      let(:leg_widget_component) { engine.widget_components.find_by_component_id(leg) }
+
+    it "adds a component, updates, and the widget component quantity and shows quantity of parts required", :js => true do
       visit edit_widget_path(engine)
       bip_text arm_widget_component, :quantity, 50 
       bip_text leg_widget_component, :quantity, 75
       page.should have_content(50)
       page.should have_content(75)
-      save_and_open_page
+      visit widget_path(engine)
+      page.should have_content(arm.parts(part).name)
+      page.should have_content(arm_widget_component.quantity)      
     end   
   end
 end

@@ -6,17 +6,7 @@
       = f.input :name
       = f.input :quantity
 
-      %br
-        / - @widget.widget_components.each_with_index do |widget_component, i|
-      /   %p
-      /     = widget_component.component.name
-      /     = number_field_tag "widget[widget_components_attributes][#{i}][quantity]", widget_component.quantity
-      /     = hidden_field_tag "widget[widget_components_attributes][#{i}][id]", widget_component.id
-
-
-      / = f.simple_fields_for :widget_components do |w|
-      /   = w.input :quantity, :label => "#{w.object.component.name} Quantity Required"       
-
+      %br     
       - if @widget.widget_components.blank?
         = hidden_field_tag "widget[component_ids][]", nil
         %h3= "Available Components"

@@ -14,6 +14,7 @@ class WidgetsController < ApplicationController
   # GET /widgets/1.json
   def show
     @widget = Widget.find(params[:id])
+    @widget_components = @widget.widget_components
 
     respond_to do |format|
       format.html # show.html.erb

@@ -9,9 +9,8 @@
   %strong= model_class.human_attribute_name(:quantity) + ':'
   %br
   = @widget.quantity
-%p
+.well
   = render :partial => 'components'
-
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), widgets_path, :class => 'btn'

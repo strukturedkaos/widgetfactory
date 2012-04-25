@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423145229) do
+ActiveRecord::Schema.define(:version => 20120424122614) do
 
   create_table "component_parts", :force => true do |t|
     t.integer  "component_id"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20120423145229) do
     t.integer  "component_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "quantity"
   end
 
   add_index "widget_components", ["component_id"], :name => "index_widget_components_on_component_id"

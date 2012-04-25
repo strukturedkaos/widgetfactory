@@ -25,6 +25,7 @@ class WidgetsController < ApplicationController
   # GET /widgets/new.json
   def new
     @widget = Widget.new
+    @components = Component.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,8 @@ class WidgetsController < ApplicationController
   # GET /widgets/1/edit
   def edit
     @widget = Widget.find(params[:id])
+    @components = Component.all
+    @widget_components = @widget.widget_components
   end
 
   # POST /widgets
@@ -52,6 +55,12 @@ class WidgetsController < ApplicationController
         format.json { render json: @widget.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def add_component
+    @widget = Widget.find(params[:id])
+    @widget.component_ids = @widget.component_ids << params[:component]
+    redirect_to edit_widget_path(@widget)
   end
 
   # PUT /widgets/1

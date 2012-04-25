@@ -1,3 +1,13 @@
 - model_class = @widget.class
 %h1=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human, :default => "New #{model_class.model_name.human}")
-= render :partial => "form"
+
+= simple_form_for @widget, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = f.input :quantity
+
+  %h3= "Available Components"
+  = f.collection_check_boxes :component_ids, Component.all, :id, :name, :label => "Component"
+
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), components_path, :class => 'btn'

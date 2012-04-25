@@ -1,6 +1,13 @@
 Widgetfactory::Application.routes.draw do
 
-  resources :widgets
+  resources :widget_components
+
+  resources :widgets do
+    member do
+      post 'add_component'
+    end
+  end
+
   
   resources :components
 
